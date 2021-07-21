@@ -1,0 +1,405 @@
+{
+  "intents": [
+    {
+      "intent": "الترحيب",
+      "examples": [
+        {
+          "text": "أهلا"
+        },
+        {
+          "text": "أهلا وسهلا"
+        },
+        {
+          "text": "السلام عليكم"
+        },
+        {
+          "text": "صباح الخير"
+        },
+        {
+          "text": "صباح السرور"
+        },
+        {
+          "text": "صباح النور"
+        },
+        {
+          "text": "مرحبا بك"
+        },
+        {
+          "text": "مساء السعد"
+        },
+        {
+          "text": "مساء الورد"
+        },
+        {
+          "text": "هلا"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "تقديم_الطلب",
+      "examples": [
+        {
+          "text": "تفضل"
+        },
+        {
+          "text": "تفضل،من فضلك !"
+        },
+        {
+          "text": "تم التنفيذ"
+        },
+        {
+          "text": "طلبك"
+        },
+        {
+          "text": "هذا لك"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "تقييم_الخدمة",
+      "examples": [
+        {
+          "text": "جميل"
+        },
+        {
+          "text": "خدمة رائعة"
+        },
+        {
+          "text": "رائع"
+        },
+        {
+          "text": "سيء"
+        },
+        {
+          "text": "مشكلة التأخير"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "دفع_الحساب",
+      "examples": [
+        {
+          "text": "الباقي"
+        },
+        {
+          "text": "القبمة"
+        },
+        {
+          "text": "المبلغ"
+        },
+        {
+          "text": "تم"
+        },
+        {
+          "text": "ثمن الفاتورة"
+        },
+        {
+          "text": "خصم"
+        },
+        {
+          "text": "قيمة الفاتورة"
+        },
+        {
+          "text": "كامل"
+        },
+        {
+          "text": "مال"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "طلب_قهوة",
+      "examples": [
+        {
+          "text": "تركش بالحليب"
+        },
+        {
+          "text": "تركش كفي"
+        },
+        {
+          "text": "سكر"
+        },
+        {
+          "text": "فهوة عربي"
+        },
+        {
+          "text": "قهوة"
+        },
+        {
+          "text": "قهوة تركي"
+        },
+        {
+          "text": "قهوة سادة"
+        },
+        {
+          "text": "قهوة مقطرة"
+        },
+        {
+          "text": "ما أنواع القهوة"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "دفع الحساب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لا يوجد باقي"
+              },
+              {
+                "text": "المبلغ هو ..."
+              },
+              {
+                "text": "تم الدفع شكرا"
+              },
+              {
+                "text": "ثمنها هو "
+              },
+              {
+                "text": "عفوا لا يوجد لدينا خصم "
+              },
+              {
+                "text": "القيمة هي "
+              },
+              {
+                "text": "نعم كامل "
+              },
+              {
+                "text": "المبلغ هو "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#دفع_الحساب",
+      "dialog_node": "node_1_1626584862221",
+      "previous_sibling": "node_5_1626585083172"
+    },
+    {
+      "type": "standard",
+      "title": "ترحيب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "صباح النور، كيف يمكنني المساعدة"
+              },
+              {
+                "text": "كيف يمكنني المساعدة "
+              },
+              {
+                "text": "كيف أساعدك "
+              },
+              {
+                "text": "تفضل "
+              },
+              {
+                "text": "من فضلك، كيف أسأعدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "من فضلك، كيف يمكنني مساعدتك"
+              },
+              {
+                "text": "كيف أساعدك "
+              },
+              {
+                "text": "تفضل عزيزي"
+              },
+              {
+                "text": "هل تريد المساعدة "
+              },
+              {
+                "text": "من فضلك ، كيف أساعدك "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#الترحيب",
+      "dialog_node": "node_2_1626583670863",
+      "previous_sibling": "node_3_1626584163527"
+    },
+    {
+      "type": "standard",
+      "title": "طلب قهوة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "هل تريد قهوة !، إذا جوابك نعم فماذا تفضل أن تكون قهوتك "
+              },
+              {
+                "text": "أخبرني بقهوتك التي تريدها "
+              },
+              {
+                "text": "لدينا أنواع كثيرة من القهوة "
+              },
+              {
+                "text": "تفضل عزيزي "
+              },
+              {
+                "text": "ماهو نوع قهوتك؟ سادة أم بالحليب تركي أم عربي "
+              },
+              {
+                "text": "لدينا أيضًا قهوة مقطرة ، ربما تعجبك "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#طلب_قهوة",
+      "dialog_node": "node_3_1626584163527",
+      "previous_sibling": "node_7_1626584595020"
+    },
+    {
+      "type": "standard",
+      "title": "تقييم الخدمة",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "شكرا لك ، سي}خذ بعين الاعتبار "
+              },
+              {
+                "text": "أكنبها في الملاحظات "
+              },
+              {
+                "text": "نرحب بك وبملاجظاتك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "random"
+          }
+        ]
+      },
+      "conditions": "#تقييم_الخدمة",
+      "dialog_node": "node_5_1626585083172",
+      "previous_sibling": "مرحبا"
+    },
+    {
+      "type": "standard",
+      "title": "تقديم الطلب",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "هذه ليست لك إذاَ"
+              },
+              {
+                "text": "شكرا لك هذه لي "
+              },
+              {
+                "text": "تم تنفيذها بسرعة "
+              },
+              {
+                "text": "نعم "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#تقديم_الطلب",
+      "dialog_node": "node_7_1626584595020",
+      "previous_sibling": "node_1_1626584862221"
+    },
+    {
+      "type": "standard",
+      "title": "أي شيء آخر",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "لم أفهم، يمكنك محاولة اعادة الصياغة"
+              },
+              {
+                "text": "هل يمكنك اعادة صياغة عبارتك؟ أنا لا فهم"
+              },
+              {
+                "text": "لم أفهم قصدك"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "أي شيء آخر",
+      "previous_sibling": "node_2_1626583670863",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "مرحبا",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "مرحبا، كيف يمكنني مساعدتك؟"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "مرحبا"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": ":هل قصدت",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "كل ما سبق خطأ"
+    },
+    "human_agent_assist": {
+      "prompt": ":هل قصدت"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "التحدث",
+  "language": "ar",
+  "description": ""
+}
